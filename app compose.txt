@@ -1,0 +1,38 @@
+Create docker-compose.yml file in vs code and put this code
+version: '3'
+services:
+  web:
+    image: nginx
+    ports:
+      - "9090:80"
+  database:
+    image: redis
+now run following commands
+docker-compose config
+docker-compose up -d
+docker-compose ps
+docker-compose up -d --scale database=4
+docker-compose ps
+
+
+Go in pipeline script and put this script. Then save and click Build now
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building project...'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing project...'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying project...'
+            }
+        }
+    }
+}
