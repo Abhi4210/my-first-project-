@@ -1,0 +1,14 @@
+App.py
+print("Hello! Docker Experiment No. 4")
+print("Python application running inside Docker.")
+
+Dockerfile
+FROM python:3.12-slim
+WORKDIR /app
+COPY app.py .
+CMD ["python", "app.py"]
+•	Run Following commands in terminal line wise
+1.	docker build -t exp4-image .
+2.	docker images
+3.	docker ps -a
+4.	docker run --name exp4-container exp4-image
